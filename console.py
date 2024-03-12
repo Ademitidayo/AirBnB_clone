@@ -67,6 +67,10 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self,arg):
         """Quit command to exit the program"""
         return True
+    def do_emptyline(self):
+        """if line is empty, do nothing"""
+        pass
+
     def do_show(self,arg):
         """Prints the string representation of an instance"""
         args = arg.split()
