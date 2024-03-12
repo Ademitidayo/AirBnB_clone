@@ -165,11 +165,9 @@ class HBNBCommand(cmd.Cmd):
             attr_value = eval(attr_value)
         except (NameError, SyntaxError):
             pass
-        print("Retrieved object:", obj)
         print("Updating attribute:", attr_name, "with value:", attr_value)
         setattr(obj, attr_name, attr_value)
         models.storage.save()
-        print("Changes saved successfully.")
 
     def do_count(self, arg):
         """Count the number of instances of a class."""
