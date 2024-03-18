@@ -67,6 +67,10 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self,arg):
         """Quit command to exit the program"""
         return True
+    def do_emptyline(self):
+        """if line is empty, do nothing"""
+        pass
+
     def do_show(self,arg):
         """Prints the string representation of an instance"""
         args = arg.split()
@@ -161,11 +165,9 @@ class HBNBCommand(cmd.Cmd):
             attr_value = eval(attr_value)
         except (NameError, SyntaxError):
             pass
-        print("Retrieved object:", obj)
         print("Updating attribute:", attr_name, "with value:", attr_value)
         setattr(obj, attr_name, attr_value)
         models.storage.save()
-        print("Changes saved successfully.")
 
     def do_count(self, arg):
         """Count the number of instances of a class."""
